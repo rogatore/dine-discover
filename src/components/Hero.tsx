@@ -62,9 +62,10 @@ const Hero = () => {
           <Button asChild size="lg" className="bg-gold hover:bg-gold-dark text-black">
             <Link to="/reservation">Réserver une table</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+          <Button asChild variant="ghost" size="lg" className="text-white border-2 border-gold-light hover:bg-gold-light/20 group transition-all duration-300">
             <Link to="/menu" className="flex items-center gap-2">
-              Découvrir notre menu <ArrowRight size={16} />
+              Découvrir notre menu 
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Button>
         </motion.div>
