@@ -14,6 +14,11 @@ import GalleryPage from "./pages/GalleryPage";
 import EventsPage from "./pages/EventsPage";
 import NotFound from "./pages/NotFound";
 
+// Admin pages
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminGallery from "./pages/admin/AdminGallery";
+import AdminEvents from "./pages/admin/AdminEvents";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -24,12 +29,20 @@ const App = () => (
       <BrowserRouter>
         <AnimatePresence mode="wait">
           <Routes>
+            {/* Client-facing routes */}
             <Route path="/" element={<Index />} />
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/reservation" element={<ReservationPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/events" element={<EventsPage />} />
+            
+            {/* Admin routes */}
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/gallery" element={<AdminGallery />} />
+            <Route path="/admin/events" element={<AdminEvents />} />
+            
+            {/* 404 page */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

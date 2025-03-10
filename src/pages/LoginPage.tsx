@@ -29,7 +29,7 @@ const LoginPage = () => {
         title: isAdmin ? "Connexion administrateur réussie" : "Connexion réussie",
         description: `Bienvenue ${isAdmin ? "Administrateur" : ""} sur Dine & Discover`,
       });
-      navigate("/");
+      navigate(isAdmin ? "/admin/dashboard" : "/");
     }, 1500);
   };
 
@@ -45,6 +45,20 @@ const LoginPage = () => {
         description: "Votre compte a été créé. Vous pouvez maintenant vous connecter.",
       });
     }, 1500);
+  };
+  
+  const switchToRegisterTab = () => {
+    const registerTrigger = document.querySelector('[data-value="register"]') as HTMLElement;
+    if (registerTrigger) {
+      registerTrigger.click();
+    }
+  };
+  
+  const switchToLoginTab = () => {
+    const loginTrigger = document.querySelector('[data-value="login"]') as HTMLElement;
+    if (loginTrigger) {
+      loginTrigger.click();
+    }
   };
 
   return (
@@ -174,7 +188,7 @@ const LoginPage = () => {
                 <CardFooter className="flex justify-center border-t border-white/10 pt-6">
                   <p className="text-sm text-white/70">
                     Pas encore de compte?{" "}
-                    <Button variant="link" className="text-gold-light p-0" onClick={() => document.querySelector('[data-value="register"]')?.click()}>
+                    <Button variant="link" className="text-gold-light p-0" onClick={switchToRegisterTab}>
                       Créer un compte
                     </Button>
                   </p>
@@ -258,7 +272,7 @@ const LoginPage = () => {
                 <CardFooter className="flex justify-center border-t border-white/10 pt-6">
                   <p className="text-sm text-white/70">
                     Vous avez déjà un compte?{" "}
-                    <Button variant="link" className="text-gold-light p-0" onClick={() => document.querySelector('[data-value="login"]')?.click()}>
+                    <Button variant="link" className="text-gold-light p-0" onClick={switchToLoginTab}>
                       Se connecter
                     </Button>
                   </p>
